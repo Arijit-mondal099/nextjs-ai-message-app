@@ -36,7 +36,7 @@ const userSchema: Schema<User> = new Schema(
             trim: true,
             required: [true, "Username is required"],
             unique: [true, "Username alredy taken"],
-            maxLength: [30, "Username can't be 30 charaters long"]
+            maxLength: [30, "Username must be under 30 characters"]
         },
         email: {
             type: String,
