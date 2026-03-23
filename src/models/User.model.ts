@@ -3,6 +3,7 @@ import { Document, Model, model, models, Schema } from "mongoose"
 
 export interface Message extends Document {
     content: string;
+    createdAt: Date
 }
 
 export interface User extends Document {
@@ -22,10 +23,11 @@ const messageSchema: Schema<Message> = new Schema(
             type: String,
             required: [true, "Message is required"],
             trim: true,
+        },
+        createdAt: {
+            type: Date,
+            default: new Date()
         }
-    },
-    {
-        timestamps: true
     }
 )
 
