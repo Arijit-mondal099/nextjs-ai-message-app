@@ -40,7 +40,7 @@ export default function SignUp() {
 
     try {
         const { data } = await axios.post<ApiResponse<undefined>>("/api/auth/sign-up", formData)
-        if (data.success) router.replace(`/verify-account?q=${username}`)
+        if (data.success) router.replace(`/verify-account?q=${formData.username}`)
     } catch (error: unknown) {
       const msg = error instanceof AxiosError ? error.response?.data.message : "Something went wrong please try again later";
       toast.error(msg)

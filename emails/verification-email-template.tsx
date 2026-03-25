@@ -34,7 +34,7 @@ export function VerificationEmailTemplate({ username, verificationCode }: Props)
             Thank you for registering, please use following otp to complete your
             registration.
           </Text>
-          <Text>Make sure don&apos;t share your otp to anyone!</Text>
+          <Text>Make sure don&apos;t share your otp to anyone! OTP expried in 10m</Text>
         </Row>
 
         <Row>
