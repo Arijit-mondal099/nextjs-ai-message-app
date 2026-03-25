@@ -1,8 +1,8 @@
 import { z } from "zod"
 
-export const signinSchema = {
+export const signinSchema = z.object({
     indentifier: z.string(),
     password: z.string()
-}
+})
 
-export type SignupSchemaData = z.infer<typeof signinSchema>
+export type SignInSchemaData = z.infer<typeof signinSchema>
