@@ -38,7 +38,7 @@ export function VerificationEmailTemplate({ username, verificationCode }: Props)
         </Row>
 
         <Row>
-          <Link href={`${process.env.DOMAIN}/verify/${username}`}>
+          <Link href={`${process.env.DOMAIN}/verify-account?q=${username}`}>
             <Button>Verify</Button>
           </Link>
         </Row>
