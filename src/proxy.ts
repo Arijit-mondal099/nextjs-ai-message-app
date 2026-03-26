@@ -8,7 +8,7 @@ export async function proxy(request: NextRequest) {
   const isPublicPath =
     path.startsWith("/sign-in") ||
     path.startsWith("/sign-up") ||
-    path.startsWith("/verify");
+    path.startsWith("/verify-account");
 
   if (token && isPublicPath) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
