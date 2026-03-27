@@ -40,7 +40,7 @@ export default function SignIn() {
         toast.error("Oops invalid credentials");
       } else {
         toast.success("Signin successfully");
-        router.replace("/");
+        router.replace("/dashboard");
       }
     } catch (error: unknown) {
       toast.error(

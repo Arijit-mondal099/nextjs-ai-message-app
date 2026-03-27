@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-999 border-b bg-white border-gray-200 shadow">
-      <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div className="container mx-auto px-4 h-14 flex items-center justify-between">
         <h1 className="font-semibold text-lg">
           <Link href="/">Message</Link>
         </h1>

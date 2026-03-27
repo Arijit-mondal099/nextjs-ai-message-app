@@ -6,6 +6,9 @@ import { dbConnection } from "@/lib/dbConnect";
 import mongoose from "mongoose";
 import UserModel from "@/models/User.model";
 
+/**
+ * Get all user messages
+ */
 export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
@@ -27,13 +30,13 @@ export async function GET(request: NextRequest) {
     const foundUser = await User.aggregate([
         { $match: { _id: userId } },
         { $unwind: "$messages" },
-        { $sort: { "$messages.createdAt": -1 } },
+        { $sort: { "messages.createdAt": -1 } },
         { $group: { _id: "$_id", messages: { $push: "$messages" } } }
     ])
 
     if (!foundUser || foundUser.length === 0) {
       return NextResponse.json(
-        { success: false, message: "Oops user not found" },
+        { success: false, message: "Look like you haven;t got any feedback message" },
         { status: 401 },
       );
     }
@@ -54,6 +57,9 @@ export async function GET(request: NextRequest) {
   }
 }
 
+/*
+* Create message
+*/
 export async function POST(request: NextRequest) {
     await dbConnection()
     const { username, message } = await request.json() as { username: string, message: string }
